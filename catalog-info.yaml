@@ -15,5 +15,15 @@ metadata:
 spec:
     type: service
     lifecycle: production
-    owner: team-a
+    owner: idpadmins
     system: project-x
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+    name: project-x
+    description: Handy tools to keep artists in the loop
+spec:
+    owner: artist-relations-team
+    domain: artists
