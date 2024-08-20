@@ -31,7 +31,7 @@ spec:
           description: Pick one of GitHub Repos
           ui:field: SelectFieldFromApi    
           ui:options:
-            path: 'https://idp.harness.io/64b880b3fa231c173c3f9838/idp/api/proxy/github-api/users/OrkoHunter/repos'        
+            path: 'proxy/github-api/users/OrkoHunter/repos'
             valueSelector: 'full_name'
         projectId:
             title: Project Identifier
