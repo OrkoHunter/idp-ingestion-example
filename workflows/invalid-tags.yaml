@@ -1,5 +1,5 @@
 apiVersion: scaffolder.backstage.io/v1beta3
-kind: Template
+kind: Component
 # some metadata about the template itself
 metadata:
   name: react-app
