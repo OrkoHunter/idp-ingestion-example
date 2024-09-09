@@ -16,9 +16,9 @@ spec:
     - title: Details
       properties:
         name:
-          title: '${{ user.entity.spec.profile.email }}'
+          title: title
           type: string
-          description: Provide a string '${{ user.entity.spec.profile.email }}'
+          description: description
   # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: log
