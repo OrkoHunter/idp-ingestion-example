@@ -31,7 +31,7 @@ spec:
       name: log2
       action: debug:log
       input:
-        message: ${{ identity }}
+        message: '${{ identity }}'
   # some outputs which are saved along with the job for use in the frontend
   output:
     links:
