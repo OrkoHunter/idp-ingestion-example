@@ -1,0 +1,39 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: use-user-identity
+  title: Use User Identity
+  tags:
+    - nextjs
+    - react
+    - javascript
+# these are the steps which are rendered in the frontend with the form input
+spec:
+  owner: user@example.com
+  type: service
+  parameters:
+    - title: Details
+      properties:
+        name:
+          title: name
+          type: string
+          description: Provide a string
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+    - id: log
+      name: log
+      action: debug:log
+      input:
+        message: "Hello World"
+
+    - id: log2
+      name: log2
+      action: debug:log
+      input:
+        message: "Hello World ${{ identity }}"
+  # some outputs which are saved along with the job for use in the frontend
+  output:
+    links:
+      - title: Pipeline Details
+        url: ${{ steps.trigger.output.PipelineUrl }}
