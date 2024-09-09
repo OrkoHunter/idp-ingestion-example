@@ -16,9 +16,9 @@ spec:
     - title: Details
       properties:
         name:
-          title: '${{ identity }}'
+          title: '${{ user.entity.spec.profile.email }}'
           type: string
-          description: Provide a string '${{ identity }}'
+          description: Provide a string '${{ user.entity.spec.profile.email }}'
   # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: log
@@ -31,7 +31,7 @@ spec:
       name: log2
       action: debug:log
       input:
-        message: '${{ identity }}'
+        message: '${{ user.entity.spec.profile.email }}'
   # some outputs which are saved along with the job for use in the frontend
   output:
     links:
