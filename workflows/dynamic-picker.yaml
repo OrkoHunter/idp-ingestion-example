@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: react-app
-  title: Create a new service
+  name: dynamic-picker
+  title: Dynamic Picker example
   description: A template to create a new service
   tags:
     - nextjs
