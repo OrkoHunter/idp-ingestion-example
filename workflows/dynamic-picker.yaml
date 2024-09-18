@@ -3,7 +3,7 @@ kind: Template
 # some metadata about the template itself
 metadata:
   name: dynamic-picker
-  title: Dynamic Picker example
+  title: Dynamic Picker example (updated)
   description: A template to create a new service
   tags:
     - nextjs
