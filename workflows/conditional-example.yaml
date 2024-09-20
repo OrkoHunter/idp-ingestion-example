@@ -15,24 +15,29 @@ spec:
   type: service
   parameters:
     - title: Fill in some steps
+      required:
+        - accountType
       properties:
-        includeName:
-          title: Include Name?
-          type: boolean
-          default: true
-  
+        accountType:
+          title: Account Type
+          type: string
+          description: Your Unique Account Type
+          enum:
+            - "workload"
+            - "other"
       dependencies:
-        includeName:
+        accountType: 
           allOf:
             - if:
                 properties:
-                  includeName:
-                    const: true
+                  accountType:
+                    const: "other"
               then:
                 properties:
-                  lastName:
-                    title: Last Name
+                  specify:
                     type: string
+                    title: Specify
+
         # This field is hidden but needed to authenticate the request to trigger the pipeline
         token:
           title: Harness Token
