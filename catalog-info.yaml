@@ -5,7 +5,7 @@ metadata:
     description: A Python Library
     annotations:
         backstage.io/techdocs-ref: dir:.
-        github.com/project-slug: OrkoHubter/pep8speaks
+        github.com/project-slug: pep8speaks-org/pep8speaks
     tags:
         - python
     links:
