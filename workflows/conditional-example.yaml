@@ -1,0 +1,58 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: conditional Example
+  title: Conditional Example
+  description: A template to create a new service
+  tags:
+    - nextjs
+    - react
+    - javascript
+# these are the steps which are rendered in the frontend with the form input
+spec:
+  owner: debabrata.panigrahi@harness.io
+  type: service
+  parameters:
+    - title: Fill in some steps
+      properties:
+        includeName:
+          title: Include Name?
+          type: boolean
+          default: true
+  
+      dependencies:
+        includeName:
+          allOf:
+            - if:
+                properties:
+                  includeName:
+                    const: true
+              then:
+                properties:
+                  lastName:
+                    title: Last Name
+                    type: string
+        # This field is hidden but needed to authenticate the request to trigger the pipeline
+        token:
+          title: Harness Token
+          type: string
+          ui:widget: password
+          ui:field: HarnessAuthToken
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+    - id: trigger
+      name: Creating your react app
+      action: trigger:harness-custom-pipeline
+      input:
+        url: "https://app.harness.io/ng/account/account_id/module/idp/orgs/org_id/projects/project_id/pipelines/pipeline_id/pipeline-studio/?storeType=INLINE"
+        inputset:
+          project_name: ${{ parameters.project_name }}
+          template_type: ${{ parameters.template_type }}
+          public_template_url: ${{ parameters.public_template_url }}
+        apikey: ${{ parameters.token }}
+  # some outputs which are saved along with the job for use in the frontend
+  output:
+    links:
+      - title: Pipeline Details
+        url: ${{ steps.trigger.output.PipelineUrl }}
