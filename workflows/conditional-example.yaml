@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: conditional Example
+  name: conditionalExample
   title: Conditional Example
   description: A template to create a new service
   tags:
