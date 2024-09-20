@@ -18,6 +18,12 @@ spec:
       required:
         - accountType
       properties:
+        # This field is hidden but needed to authenticate the request to trigger the pipeline
+        token:
+          title: Harness Token
+          type: string
+          ui:widget: password
+          ui:field: HarnessAuthToken
         accountType:
           title: Account Type
           type: string
