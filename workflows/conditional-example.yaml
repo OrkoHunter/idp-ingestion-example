@@ -3,7 +3,7 @@ kind: Template
 # some metadata about the template itself
 metadata:
   name: conditionalExample
-  title: Conditional Example New
+  title: Conditional Example New New
   description: A template to create a new service
   tags:
     - nextjs
