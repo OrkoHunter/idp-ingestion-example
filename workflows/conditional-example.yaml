@@ -31,13 +31,6 @@ spec:
           enum:
             - "workload"
             - "other"
-        accountType2:
-          title: Account Type2
-          type: string
-          description: Your Unique Account Type2
-          enum:
-            - "workload"
-            - "other"
       dependencies:
         accountType: 
           allOf:
