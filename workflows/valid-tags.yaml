@@ -6,7 +6,6 @@ metadata:
   title: Create a new service
   description: A template to create a new service
   tags:
-    - nextjs
     - react
     - javascript
 # these are the steps which are rendered in the frontend with the form input
