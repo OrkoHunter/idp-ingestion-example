@@ -41,10 +41,10 @@ spec:
           ui:options:
             title: GitHub Repository
             description: Select a GitHub repository associated with the chosen domain.
-            path: /proxy/github-api-proxy/orgs/kubernetes/repos
+            placeholder: Select a Repository
+            path: proxy/github-api-proxy/orgs/kubernetes/repos
             valueSelector: full_name
             labelSelector: name
-            allowArbitraryValues: false
   # here's the steps that are executed in series in the scaffolder backend
   steps:
     - action: debug:log
