@@ -42,7 +42,7 @@ spec:
             title: GitHub Repository
             description: Select a GitHub repository associated with the chosen domain.
             placeholder: Select a Repository
-            path: proxy/github-api-proxy/orgs/kubernetes/repos
+            path: proxy/github-api-proxy/orgs/{{ parameters.domain_entity | parseEntityRef | pick('name') }}/repos
             valueSelector: full_name
             labelSelector: name
   # here's the steps that are executed in series in the scaffolder backend
