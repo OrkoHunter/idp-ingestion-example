@@ -26,13 +26,10 @@ spec:
           title: Domain
           type: string
           description: Catalog Entity Domain
-          ui:field: EntityPicker
-          ui:options:
-            catalogFilter:
-              kind: Domain
-              metadata.namespace: default
-            valueSelector: name
-            labelSelector: title
+          default: 'Kubernetes'
+          enum:
+            - 'Kubernetes'
+            - 'Docker'
     - title: Pick a Repo
       properties:
         github_repo:
@@ -42,7 +39,7 @@ spec:
             title: GitHub Repository
             description: Select a GitHub repository associated with the chosen domain.
             placeholder: Select a Repository
-            path: proxy/github-api-proxy/orgs/{{ parameters.domain_entity | parseEntityRef }}/repos
+            path: proxy/github-api-proxy/orgs/{{ parameters.domain_entity }}/repos
             valueSelector: full_name
             labelSelector: name
   # here's the steps that are executed in series in the scaffolder backend
