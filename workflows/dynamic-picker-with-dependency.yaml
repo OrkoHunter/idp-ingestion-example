@@ -51,7 +51,7 @@ spec:
       id: write-debug-line
       name: Debug
       input:
-        message: Hello! ${{ parameters.domain_entity }}
+        message: Hello! ${{ parameters.domain_entity | parseEntityRef | pick('name') }}
   # some outputs which are saved along with the job for use in the frontend
   output:
     links:
