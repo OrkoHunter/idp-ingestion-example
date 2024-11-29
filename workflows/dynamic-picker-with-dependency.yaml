@@ -1,0 +1,59 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: dynamic-picker-with-dependency
+  title: Dynamic Picker with Dependency
+  description: A template to fetch Github Repos dynamically
+  tags:
+    - nextjs
+    - react
+    - javascript
+# these are the steps which are rendered in the frontend with the form input
+spec:
+  owner: name@company.com
+  type: service
+  parameters:
+    - title: Pick a Domain
+      properties:
+        # This field is hidden but needed to authenticate the request to trigger the pipeline
+        token:
+          title: Harness Token
+          type: string
+          ui:widget: password
+          ui:field: HarnessAuthToken
+        domain_entity:
+          title: Domain
+          type: string
+          description: Catalog Entity Domain
+          ui:field: EntityPicker
+          ui:options:
+            catalogFilter:
+              kind: Domain
+              metadata.namespace: default
+            valueSelector: name
+            labelSelector: title
+    - title: Pick a Repo
+      properties:
+        github_repo:
+          type: string
+          ui:field: SelectFieldFromApi
+          ui:options:
+            title: GitHub Repository
+            description: Select a GitHub repository associated with the chosen domain.
+            path: /proxy/github-api-proxy/orgs/kubernetes/repos
+            valueSelector: full_name
+            labelSelector: name
+            allowArbitraryValues: false
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+    - action: debug:log
+      id: write-debug-line
+      name: Debug
+      input:
+        message: Hello! ${{ parameters.domain_entity }}
+  # some outputs which are saved along with the job for use in the frontend
+  output:
+    links:
+      - title: Pipeline Details
+        url: ${{ steps.trigger.output.PipelineUrl }}
