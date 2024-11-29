@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Domain
 metadata:
-  name: kubernetes
-  title: kubernetes
+  name: docker
+  title: Docker
   links:
     - url: http://example.com/domain/artists/
       title: Domain Readme
